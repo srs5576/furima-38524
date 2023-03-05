@@ -2,7 +2,6 @@
 
 | Column            | Type    | Options                        |
 |-------------------|---------|--------------------------------|
-| id                | int     | auto_increment, primary_key    |
 | nickname          | string  | null: false                    |
 | email             | string  | null: false, unique: true      |
 | encrypted_password| string  | null: false                    |
@@ -14,24 +13,23 @@
 
 
 ### Association
- has_many :items, dependent: :destroy
+ has_many :items
  has_many :buyers
- has_many :purchases, through: :buyers, source: :item
  has_one :address
 
 ## itemsテーブル
 
 | column                  | type   | options                         |
 |:------------------------|:-------|:--------------------------------|
-| seller               | int    | foreign_key: true, not null      |
-| name                    | string | not null                        |
-| description             | text   | not null                        |
-| category             | int    | not null                        |
-| condition            | int    | not null                        |
-| price                   | int    | not null                        |
-| shipping_fee_burden  | int    | not null                        |
-| prefecture           | int    | not null                        |
-| days_until_shipping  | int    | not null                        |
+| user_id               | int    | foreign_key: true, null: false      |
+| name_id                    | string | null: false                        |
+| description             | text   | null: false                        |
+| category_id             | int    | null: false                       |
+| condition_id            | int    | null: false                        |
+| price                   | int    | null: false                        |
+| shipping_fee_burden  | int    | null: false                        |
+| prefecture           | int    | null: false                        |
+| days_until_shipping  | int    | null: false                        |
 
 ### Association
  belongs_to :user
@@ -45,26 +43,25 @@
 ## buyersテーブル
 | column           | type   | options                       |
 |:-----------------|:-------|:------------------------------|
-| user_id          | int    | not null                      |
-| item_id          | int    | not null                      |
+| user          | string    | null: false                      |
+| item          | string    | null: false                      |
 
 ### Association
  belongs_to :user
  belongs_to :item
- has_one :address, through: :user
+ has_one :address
 
-## address テーブル
+## addresses テーブル
 
 | Column Name    | Data Type | Constraints                                         |
 |----------------|----------|------------------------------------------------------|
-| post_number    | string   | NOT NULL                                             |
-| prefecture     | integer  | NOT NULL                                             |
-| city           | string   | NOT NULL                                             |
-| address        | string   | NOT NULL                                             |
-| building       | string   |                                                      |
-| phone_number   | string   | NOT NULL                                             |
-| purchase_history | foreign key | NOT NULL, with foreign key constraints          |
+| post_number    | string   | null: false                                          |
+| prefecture     | string  | null: false                                           |
+| city           | string   | null: false                                          |
+| address        | string   | null: false                                          |
+| building       | string   | null: false                                          |
+| phone_number   | string   | null: false                                          |
+| buyer_id | foreign key | foreign_key: true null: false                           |
 
 ### Association
-  belongs_to :user
   belongs_to :buyer
