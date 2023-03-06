@@ -20,14 +20,14 @@
 
 | column                  | type   | options                         |
 |:------------------------|:-------|:--------------------------------|
-| user              | int    | foreign_key: true, null: false      |
-| name_id                    | string | null: false                        |
+| user_id              | int    | foreign_key: true, null: false      |
+| name                    | string | null: false                        |
 | description             | text   | null: false                        |
 | category_id             | int    | null: false                       |
 | condition_id            | int    | null: false                        |
 | price                   | int    | null: false                        |
 | shipping_fee_burdens_id  | int    | null: false                        |
-| prefectures_id           | int    | null: false                        |
+| prefecture_id           | int    | null: false                        |
 | days_until_shippings_id  | int    | null: false                        |
 
 ### Association
@@ -37,8 +37,8 @@
 ## buyersテーブル
 | column           | type   | options                       |
 |:-----------------|:-------|:------------------------------|
-| user          | int    | foreign_key: true null: false    |
-| item          | int    | foreign_key: true null: false    |
+| user_id          | int    | foreign_key: true null: false    |
+| item_id          | int    | foreign_key: true null: false    |
 
 ### Association
  belongs_to :user
@@ -55,7 +55,7 @@
 | address        | string   | null: false                                          |
 | building       | string   |                                                      |
 | phone_number   | string   | null: false                                          |
-| buyer | int | foreign_key: true null: false                           |
+| buyer_id | int | foreign_key: true null: false                           |
 
 ### Association
   belongs_to :buyer
