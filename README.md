@@ -23,12 +23,12 @@
 | user              | references    | foreign_key: true, null: false      |
 | name                    | string | null: false                        |
 | description             | text   | null: false                        |
-| category_id             | int    | null: false                       |
-| condition_id            | int    | null: false                        |
-| price                   | int    | null: false                        |
-| shipping_fee_burdens_id  | int    | null: false                        |
-| prefecture_id           | int    | null: false                        |
-| days_until_shippings_id  | int    | null: false                        |
+| category_id             | integer   | null: false                       |
+| condition_id            | integer   | null: false                        |
+| price                   | integer   | null: false                        |
+| shipping_fee_burdens_id | integer   | null: false                        |
+| prefecture_id           | integer   | null: false                        |
+| days_until_shippings_id | integer   | null: false                        |
 
 ### Association
  belongs_to :user
@@ -50,7 +50,7 @@
 | Column Name    | Data Type | Constraints                                         |
 |----------------|----------|------------------------------------------------------|
 | post_number    | string   | null: false                                          |
-| prefecture_id     | int  | null: false                                           |
+| prefecture_id  | integer  | null: false                                           |
 | city           | string   | null: false                                          |
 | address        | string   | null: false                                          |
 | building       | string   |                                                      |
