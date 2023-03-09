@@ -18,7 +18,7 @@
 
 ## itemsテーブル
 
-| column                  | type   | options                         |
+| Column                  | Type   | Options                         |
 |:------------------------|:-------|:--------------------------------|
 | user              | references    | foreign_key: true, null: false      |
 | name                    | string | null: false                        |
@@ -26,16 +26,16 @@
 | category_id             | integer   | null: false                       |
 | condition_id            | integer   | null: false                        |
 | price                   | integer   | null: false                        |
-| shipping_fee_burdens_id | integer   | null: false                        |
+| shipping_fee_burden_id | integer   | null: false                        |
 | prefecture_id           | integer   | null: false                        |
-| days_until_shippings_id | integer   | null: false                        |
+| days_until_shipping_id | integer   | null: false                        |
 
 ### Association
  belongs_to :user
  has_one :buyer
 
 ## buyersテーブル
-| column           | type   | options                       |
+| Column           | Type   | Options                       |
 |:-----------------|:-------|:------------------------------|
 | user          | references    | foreign_key: true null: false    |
 | item          | references    | foreign_key: true null: false    |
@@ -47,7 +47,7 @@
 
 ## addresses テーブル
 
-| Column Name    | Data Type | Constraints                                         |
+| Column    | Type | Options                                         |
 |----------------|----------|------------------------------------------------------|
 | post_number    | string   | null: false                                          |
 | prefecture_id  | integer  | null: false                                           |
